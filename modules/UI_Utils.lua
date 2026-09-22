@@ -6,6 +6,7 @@ local ui_utils = {
 do
     function ui_utils.init(self)
         self.logging = getgenv().Logging
+        self.logging:log("ui_utils: initialized.")
     end
 
     function ui_utils.inst(self, object_type: string, properties: {[any] : any})
@@ -53,6 +54,8 @@ do
         writefile(json_path, game:GetService("HttpService"):JSONEncode(font_json))
 
         self.fonts[font_name:split(".")[1]] = Font.new(getcustomasset(json_path), Enum.FontWeight.Regular)
+
+        self.logging:log(`ui_utils: registered font {font_name}.`)
     end
 end
 

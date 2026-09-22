@@ -26,6 +26,8 @@ function ui.create(self)
         Name = "Thermite" -- TODO: random name gen
     })
     self.screengui = screengui
+
+    self.logging:log("ui: created container.")
 end
 
 function ui.make_button(self, name: string?, icon: string?, callback: () -> ()?)
@@ -37,7 +39,7 @@ function ui.make_button(self, name: string?, icon: string?, callback: () -> ()?)
         Name = name.."_frame",
         Parent = self.screengui:WaitForChild("sidebar"),
         BackgroundTransparency = 1,
-        Size = UDim2.new(1, 0, 0, 50)
+        Size = UDim2.new(1, 0, 0, 50),
     })
 
     local button = self.ui_utils:inst("ImageButton", {
@@ -125,6 +127,8 @@ function ui.explorer_window(self)
             TextSize = 12,
             TextXAlignment = Enum.TextXAlignment.Left
         })
+
+        self.logging:log("ui: created explorer")
     end
 end
 
@@ -177,6 +181,8 @@ function ui.make_sidebar(self)
     end)
     self:make_button("Remote Inspector", "http://www.roblox.com/asset/?id=6031763426")
     self:make_button("Script Inspector", "http://www.roblox.com/asset/?id=6022668955")
+
+    self.logging:log("ui: created sidebar.")
 end
 
 function ui.init(self)
@@ -189,11 +195,13 @@ function ui.init(self)
     ui:create()
 
     if not self.screengui then
-        self.logging:log("ui.init: self.screengui doesn't exist")
+        self.logging:log("ui: self.screengui doesn't exist")
         return
     end
 
     ui:make_sidebar()
+
+    self.logging:log("ui: initialized.")
 end
 
 return ui
