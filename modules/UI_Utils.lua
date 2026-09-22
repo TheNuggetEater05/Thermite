@@ -24,9 +24,9 @@ do
         return instance
     end
 
-    function ui_utils.register_font(self, font_name: string, font_parent_dir: string?, source: string?)
+    function ui_utils.register_font(self, font_name: string, source: string?)
         source = source or ""
-        font_parent_dir = font_parent_dir or ""
+        local font_parent_dir = "thermite/assets/fonts/"
         
         local font_path = tostring(font_parent_dir..font_name)
 
