@@ -6,6 +6,8 @@ Developed by TheNuggetEater05 / Jayden.
 
 _**Thermite is entirely open-source, forks and pull-requests are allowed and appreciated**_
 
+Run the loader script below to load Thermite:
+
 ```lua
 --[[
     Thermite b0.1
